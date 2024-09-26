@@ -13,7 +13,7 @@ bot_username = "x_turbo_bot"
 ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 ssl_context.check_hostname = False
 ssl_context.verify_mode = ssl.CERT_NONE
-ssl_context = ssl.create_default_context(cafile='/home/fiornrrn/.postgresql/root.crt')
+ssl_context = ssl.create_default_context(cafile='/root/.postgresql/root.crt')
 
 DB_HOST = os.getenv('DB_HOST')
 DB_PORT = os.getenv('DB_PORT')
@@ -24,7 +24,7 @@ DB_SSL_MODE = os.getenv('DB_SSL_MODE', 'verify-full')
 DB_CONNECTION_STRING = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode={DB_SSL_MODE}"
 
 try:
-    conn = psycopg2.connect(DB_CONNECTION_STRING, sslmode='verify-full', sslrootcert='/home/fiornrrn/.postgresql/root.crt')
+    conn = psycopg2.connect(DB_CONNECTION_STRING, sslmode='verify-full', sslrootcert='/root/.postgresql/root.crt')
     conn.autocommit = True
     print("Connected to the database")
 except Exception as e:
