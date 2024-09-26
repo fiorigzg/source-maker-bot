@@ -21,8 +21,7 @@ DB_NAME = os.getenv('DB_NAME')
 DB_USER = os.getenv('DB_USER')
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_SSL_MODE = os.getenv('DB_SSL_MODE', 'verify-full')
-DB_SSL_ROOT_CERT = os.getenv('DB_SSL_ROOT_CERT')
-DB_CONNECTION_STRING = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode={DB_SSL_MODE}&sslrootcert={DB_SSL_ROOT_CERT}"
+DB_CONNECTION_STRING = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode={DB_SSL_MODE}"
 
 try:
     conn = psycopg2.connect(DB_CONNECTION_STRING, sslmode='verify-full', sslrootcert='/home/fiornrrn/.postgresql/root.crt')
