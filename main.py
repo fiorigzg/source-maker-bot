@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 bot = telebot.TeleBot(TOKEN)
+bot_username = "x_turbo_bot"
 
 ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 ssl_context.check_hostname = False
@@ -76,7 +77,6 @@ def process_source_name(message):
 
             source_id = source_id[0]
 
-            bot_username = bot.get_me().username
             link = f"https://t.me/{bot_username}?start={source_id}"
 
             cursor.execute('''
