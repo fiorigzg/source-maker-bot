@@ -44,6 +44,16 @@ def create_table():
 
 create_table()
 
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    response = (
+        "Добро пожаловать! Вот список доступных команд:\n\n"
+        "/add_source - Добавить новый источник\n"
+        "/sources - Показать список всех источников\n"
+        "/delete_source - Удалить источник по ID\n"
+    )
+    bot.send_message(message.chat.id, response)
+
 @bot.message_handler(commands=['add_source'])
 def add_source(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
